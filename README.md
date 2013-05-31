@@ -1,13 +1,27 @@
 PokeGear
-========
+===================
 
+Setup
+=====
+Minecraft: 1.5.2 
+MCP: 7.23  
+Forge: #716
 
- kdir ~/Hello-World
+Get the mentioned Forge and MCP, and decompile (using install.cmd/sh). Once you have a working Forge workspace, pull the repo into that MCP folder.
+When more than one contributor is online, we use Saros to collaborate.
 
- cd ~/Hello-World
+COMPILING (to get all that good stuff)
+=======================
 
- git init
+You need Apache Ant and the JDK. To build, run 'git submodule init' and 'git submodule update' in the root folder.
+cd back up one level and simply type 'ant' in the folder with build.xml inside it.
 
-Initialized empty Git repository in /Users/jack/Documents/My Games/Desktop/Desktop/PokeGear/.git/
+PokeGear Team Members:
+================
+<a href="https://github.com/alexbegt">Alexbegt</a>  
 
-touch README
+<a href="https://github.com/Xwaffle1">Xwaffle1</a>  
+
+<a href="https://github.com/Windjoe">WinderJoe</a>  
+
+<a href="https://github.com/TomyMaster98">TomyMaster98</a>  
