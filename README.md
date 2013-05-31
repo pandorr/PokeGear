@@ -3,7 +3,7 @@ PokeGear
 
 Setup
 =====
-Minecraft: 1.5.2 
+Minecraft: 1.5.2  
 MCP: 7.23  
 Forge: #716
 

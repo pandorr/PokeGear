@@ -4,9 +4,11 @@
 
 	<property name="build.dir" value="build" />
 
-    <property name="classes.dir" value="${build.dir}/packaging" />
+    <property name="classes.dir" value="${build.dir}/packaging/coremod" />
 
 	<property name="src.dir" value="src" />
+	
+	<property name="resources.dir" value="resources" />
 
 
 	<property name="forge.version" value="1.5.2-7.8.0.716" />
@@ -16,12 +18,13 @@
 	<property name="forge.dir" value="${build.dir}/forge" />
 	<property name="mcp.dir" value="${forge.dir}/mcp" />
 	<property name="mcpsrc.dir" value="${mcp.dir}/src/minecraft" />
-	<property name="build.ver" value="0.0.0.0" />
-	<property name="package.srgs" value="porting" />
+	<property name="build.ver" value="1.5.2" />
 	<!--<property name="files.minecraft.dir" value="jars" />-->
 	<property name="dist.dir" value="${build.dir}/dist" />
 
 	<property name="download.dir" value="downloads" />
+
+	<property name="lib.dir" value="${src.dir}/lib" />
 
 	<property file="${forge.dir}/forgeversion.properties" />
 	<condition property="forge.already.installed">
@@ -34,20 +37,21 @@
 
 
 	<available property="forge-exists" file="${download.dir}/minecraftforge-src-${forge.version}.zip" />
-	<available property="already-compiled" file="${classes.dir}/keepcalm" />
+	<available property="already-compiled" file="${classes.dir}/net/PokeGear" />
 	<condition property="should-download-ant-contrib">
 		<or>
 			<available file="${download.dir}/ant-contrib/ant-contrib-1.0b3.jar"/>
 			<available file="${download.dir}/minecraftforge-src-${forge.version}.zip"/>
 		</or>
 	</condition>
+	<available property="props-there" file="utils/obf.properties" />
 
 	<target name="install" depends="build">
-		<!--		 <delete dir="${classes.dir}/keepcalm/mods/blockbreak" />-->
-		<copy todir="${classes.dir}">
-			<fileset file="${package.at}" />
-		</copy>
-		<jar destfile="${dist.dir}/PokeGear-${build.ver}-${build.number}.jar" basedir="${classes.dir}"/>
+		<manifest file="MANIFEST.MF" >
+			<attribute name="MCVersion" value="${build.ver}"/>
+			<attribute name="BuildNumber" value="${build.number}" />
+		</manifest>
+		<jar destfile="${dist.dir}/PokeGear-${build.ver}-${build.number}.jar" basedir="${classes.dir}" manifest="MANIFEST.MF"/>
 		<copy file="${dist.dir}/PokeGear-${build.ver}-${build.number}.jar" toFile="${dist.dir}/PokeGear-latest.jar" />
 
 
@@ -56,22 +60,16 @@
 	</target>
 
 	<target name="build" depends="setup-forge" unless="already-compiled">
-	 
-	    <!--Deleting sources so that they don't come back to haunt you-->
-		<delete dir="${mcpsrc.dir}/com" />
-		<!-- Copy source -->
-		<!--<mkdir dir="${mcpsrc.dir}/net" />
-				<copy todir="${mcpsrc.dir}/net">
-					<fileset dir="${src.dir}/net" />
-					</copy>-->
-		<mkdir dir="${mcpsrc.dir}/com" />
-        <copy todir="${mcpsrc.dir}/com">
-            <fileset dir="${src.dir}/com"/>
-        </copy>
-		<copy todir="${mcpsrc.dir}/keepcalm">
-			<fileset dir="${src.dir}/keepcalm"/>
-		</copy>
 
+		<!--Deleting sources so that they don't come back to haunt you-->
+        <delete dir="${mcpsrc.dir}/net/PokeGear" />
+		<!-- Copy source -->
+		<mkdir dir="${mcpsrc.dir}/net/PokeGear" />
+		<copy todir="${mcpsrc.dir}/net/PokeGear">
+            <fileset dir="${src.dir}/net/PokeGear"/>
+			<fileset dir="${src.dir}"/>
+        </copy>
+		
 		<!-- Recompile -->
 		<exec dir="${mcp.dir}" executable="cmd" osfamily="windows" failonerror="true">
 			<arg line="/c recompile.bat"/>
@@ -92,6 +90,8 @@
 
 		<copy todir="${classes.dir}">
             <fileset dir="${mcp.dir}/reobf/minecraft" />
+			<fileset dir="${resources.dir}" />
+			<fileset dir="${src.dir}"/>
 		</copy>
     
 	</target>
@@ -122,7 +122,7 @@
 		<chmod file="${forge.dir}/install.sh" perm="+x"/>
 
 		<!-- if your building on OSX these 2 should be executable -->
-		
+
 		<!-- Install forge -->
 		<delete dir="${mcp.dir}" failonerror="no"/>
 		<exec dir="${forge.dir}" executable="cmd" osfamily="windows" inputstring="Yes\n">
