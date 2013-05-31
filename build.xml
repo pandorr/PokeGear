@@ -6,7 +6,7 @@
 
     <property name="classes.dir" value="${build.dir}/packaging/coremod" />
 
-	<property name="src.dir" value="src" />
+	<property name="src.dir" value="minecraft" />
 	
 	<property name="resources.dir" value="resources" />
 
@@ -23,8 +23,6 @@
 	<property name="dist.dir" value="${build.dir}/dist" />
 
 	<property name="download.dir" value="downloads" />
-
-	<property name="lib.dir" value="${src.dir}/lib" />
 
 	<property file="${forge.dir}/forgeversion.properties" />
 	<condition property="forge.already.installed">
