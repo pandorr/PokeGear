@@ -13,15 +13,16 @@ import java.util.List;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
-public class ItemrunningBoots extends ItemArmor{
+public class ItemScubaHelmet extends ItemArmor{
 
 	private Icon iconIndex;
 	
-	public ItemrunningBoots(int par1, EnumArmorMaterial par2EnumArmorMaterial, int par3, int par4) {
+	public ItemScubaHelmet(int par1, EnumArmorMaterial par2EnumArmorMaterial, int par3, int par4) {
 		super(par1, par2EnumArmorMaterial, par3, par4);
 
 
@@ -30,15 +31,12 @@ public class ItemrunningBoots extends ItemArmor{
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister par1IconRegister, ItemStack itemstack){
 
-     this.iconIndex = par1IconRegister.registerIcon("PokeGear" + ":" + "runningshoes");}
+     this.iconIndex = par1IconRegister.registerIcon("PokeGear" + ":" + "scubahelmet");}
 			
 	@SideOnly(Side.CLIENT)
 	public void updateIcons(IconRegister par1IconRegister)
 	{
-		this.iconIndex = par1IconRegister.registerIcon("PokeGear" + ":" + "runningshoes");
-	
-	
-}
-	
-	
-}
+		this.iconIndex = par1IconRegister.registerIcon("PokeGear" + ":" + "scubahelmet");
+			
+		}
+	}

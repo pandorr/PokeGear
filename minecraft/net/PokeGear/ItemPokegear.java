@@ -21,6 +21,6 @@ this.setCreativeTab(CreativeTabs.tabMisc);
 @SideOnly(Side.CLIENT)
 public void registerIcons(IconRegister par1IconRegister)
 {
- this.itemIcon = par1IconRegister.registerIcon("textures/item/mod/pokegear");
+ this.itemIcon = par1IconRegister.registerIcon("PokeGear" + ":" + "pokegear");
 }	
 }

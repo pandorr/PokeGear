@@ -2,6 +2,8 @@ package net.PokeGear;
 
 import java.util.EnumSet;
 
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentOxygen;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
@@ -28,6 +30,19 @@ public class CommonTickHandler implements ITickHandler
 						player.addPotionEffect((new PotionEffect(Potion.moveSpeed.getId(), 10, 1)));
 					}
 				}
+				if(player.getCurrentItemOrArmor(4) != null){
+					ItemStack helmet = player.getCurrentItemOrArmor(4);
+					if(helmet.getItem() == Basemod.ScubaHelmet){
+						helmet.addEnchantment(Enchantment.respiration, 5);
+						helmet.addEnchantment(Enchantment.aquaAffinity, 5);
+						if(player.isInWater()){
+							player.canBreatheUnderwater();
+						}
+						
+						
+					}
+				}
+				
 			}
 
 		 @Override

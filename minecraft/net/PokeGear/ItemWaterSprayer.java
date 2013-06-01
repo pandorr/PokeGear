@@ -45,7 +45,7 @@ public void ItemWatersprayer(int par1) {
 @SideOnly(Side.CLIENT)
 public void registerIcons(IconRegister par1IconRegister)
 {
- this.itemIcon = par1IconRegister.registerIcon("textures/item/mod/wailmerpail");
+ this.itemIcon = par1IconRegister.registerIcon("PokeGear" + ":" + "wailmerpail");
 }	
 
 

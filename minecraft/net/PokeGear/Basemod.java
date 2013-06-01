@@ -32,6 +32,7 @@ public static Item Badgecase;
 public static Item Watersprayer;
 public static Item Pokegear;
 public static Item RunningBoots;
+public static Item ScubaHelmet;
 public static EnumArmorMaterial armorPoke = EnumHelper.addArmorMaterial("POKE", 66, new int[]{3, 8, 6, 3}, 22);
 
 @SidedProxy(clientSide = "net.PokeGear.ClientProxy", serverSide = "net.PokeGear.CommonProxy")
@@ -62,8 +63,11 @@ GameRegistry.addRecipe(new ItemStack(Watersprayer), new Object[]{
 Pokegear = new ItemPokegear(7002).setUnlocalizedName("Pokegear");
 LanguageRegistry.addName(Pokegear, "PokeGear"); 
 
+ScubaHelmet = new ItemScubaHelmet(7004, armorPoke, proxy.addArmor("Poke"), 0).setUnlocalizedName("ScubaHelm").setCreativeTab(CreativeTabs.tabCombat);
+LanguageRegistry.addName(ScubaHelmet, "Scuba Diving Helm");
 
-RunningBoots = new ItemrunningBoots(8995, armorPoke, proxy.addArmor("Poke"), 3).setUnlocalizedName("RunningShoes").setCreativeTab(CreativeTabs.tabCombat);
+
+RunningBoots = new ItemrunningBoots(7003, armorPoke, proxy.addArmor("Poke"), 3).setUnlocalizedName("RunningShoes").setCreativeTab(CreativeTabs.tabCombat);
 LanguageRegistry.addName(RunningBoots, "Running Shoes");
 
 
@@ -75,6 +79,12 @@ GameRegistry.addRecipe(new ItemStack(RunningBoots), new Object[]{
     'Y', net.minecraft.block.Block.cloth,
     'Z', net.minecraft.item.Item.leather 
    });
+
+
+
+
+
+
 	
 //Thats a good sign. Now it I know it is loading.
 }
