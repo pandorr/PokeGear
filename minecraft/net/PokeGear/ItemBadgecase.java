@@ -27,7 +27,7 @@ public class ItemBadgecase extends Item {
 @SideOnly(Side.CLIENT)
 public void registerIcons(IconRegister par1IconRegister)
 {
-this.itemIcon = par1IconRegister.registerIcon("mod/Badgecase7");
+this.itemIcon = par1IconRegister.registerIcon("textures/item/mod/Badgecase7");
 }	
 
 

@@ -32,13 +32,13 @@ public class ItemrunningBoots extends ItemArmor{
 	{
 		
 		if (itemstack.isItemEqual(new ItemStack(this))){
-     this.iconIndex = par1IconRegister.registerIcon("mod/runningshoes");}
+     this.iconIndex = par1IconRegister.registerIcon("textures/item/mod/runningshoes");}
 		
 	}	
 	@SideOnly(Side.CLIENT)
 	public void updateIcons(IconRegister par1IconRegister)
 	{
-		this.iconIndex = par1IconRegister.registerIcon("mod/runningshoes");
+		this.iconIndex = par1IconRegister.registerIcon("textures/item/mod/runningshoes");
 	
 	
 }

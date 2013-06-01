@@ -42,7 +42,7 @@ public class CommonTickHandler implements ITickHandler
 		 @Override
 		 public EnumSet<TickType> ticks() 
 		 {
-		  return EnumSet.of(TickType.PLAYER, TickType.SERVER);
+		  return EnumSet.of(TickType.PLAYER);
 		 }
 
 		@Override
