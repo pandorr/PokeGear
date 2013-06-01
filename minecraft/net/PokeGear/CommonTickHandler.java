@@ -33,7 +33,7 @@ public class CommonTickHandler implements ITickHandler
 		 @Override
 		 public void tickStart(EnumSet<TickType> type, Object... tickData)
 		 {
-		  if (type.equals(EnumSet.of(TickType.PLAYER, TickType.SERVER)))
+		  if (type.equals(EnumSet.of(TickType.PLAYER)))
 		  {
 		    onPlayerTick((EntityPlayer)tickData[0]);
 		  }
