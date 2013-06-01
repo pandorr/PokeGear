@@ -25,7 +25,7 @@ public class CommonTickHandler implements ITickHandler
 				if(player.getCurrentItemOrArmor(1) != null){
 					ItemStack boots = player.getCurrentItemOrArmor(1);
 					if(boots.getItem() == Basemod.RunningBoots){
-						player.addPotionEffect((new PotionEffect(Potion.moveSpeed.getId(), 20, 1)));
+						player.addPotionEffect((new PotionEffect(Potion.moveSpeed.getId(), 10, 1)));
 					}
 				}
 			}
